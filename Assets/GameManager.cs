@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     public Player player;
+    public GroundMove gMove;
     public Mop mob;
     public moveMob movemob;
     public RespawnMananger res;
@@ -32,7 +33,13 @@ public class GameManager : MonoBehaviour
     public GameObject playBtn;
 
     public Text scoreText;
-    public int score = 0; 
+    public int score = 0;
+
+    private void Update()
+    {
+        player.PlayerMove();
+        gMove.gMove();
+    }
 
     IEnumerator AddScore()
     {

@@ -16,22 +16,52 @@ public class Player : MonoBehaviour
         startPosition = transform.position;        
     }
     
-    void Update()
+    //void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.Space) && GameManager.instance.isPlay)
+    //    {
+    //        jump = true;
+    //    }
+    //    else if(transform.position.y <= startPosition.y)
+    //    {
+    //        jump = false;
+    //        isTop = false;
+    //        transform.position = startPosition;
+    //    }    
+
+    //    if(jump)
+    //    {
+    //        if(transform.position.y <= jumpHeight - 0.1f && !isTop)
+    //        {
+    //            transform.position = Vector2.Lerp(transform.position,
+    //            new Vector2(transform.position.x, jumpHeight), jumpSpeed * Time.deltaTime);
+    //        }
+    //        else
+    //        {
+    //            isTop = true;
+    //        }
+    //        if(transform.position.y > startPosition.y && isTop)
+    //        {
+    //            transform.position = Vector2.MoveTowards(transform.position, startPosition, (jumpSpeed + GameManager.instance.gameSpeed -5) * Time.deltaTime);
+    //        }
+    //    }
+    //}
+    public void PlayerMove()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && GameManager.instance.isPlay)
+        if (Input.GetKeyDown(KeyCode.Space) && GameManager.instance.isPlay)
         {
             jump = true;
         }
-        else if(transform.position.y <= startPosition.y)
+        else if (transform.position.y <= startPosition.y)
         {
             jump = false;
             isTop = false;
             transform.position = startPosition;
-        }    
+        }
 
-        if(jump)
+        if (jump)
         {
-            if(transform.position.y <= jumpHeight - 0.1f && !isTop)
+            if (transform.position.y <= jumpHeight - 0.1f && !isTop)
             {
                 transform.position = Vector2.Lerp(transform.position,
                 new Vector2(transform.position.x, jumpHeight), jumpSpeed * Time.deltaTime);
@@ -40,9 +70,9 @@ public class Player : MonoBehaviour
             {
                 isTop = true;
             }
-            if(transform.position.y > startPosition.y && isTop)
+            if (transform.position.y > startPosition.y && isTop)
             {
-                transform.position = Vector2.MoveTowards(transform.position, startPosition, (jumpSpeed + GameManager.instance.gameSpeed -5) * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, startPosition, (jumpSpeed + GameManager.instance.gameSpeed - 5) * Time.deltaTime);
             }
         }
     }
